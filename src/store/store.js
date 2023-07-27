@@ -1,7 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { mapSlice } from "./map/mapSlice";
 import createSagaMiddleware from "redux-saga";
+
 import waitFetchWaySelection from "../sagas";
+import { mapSlice } from "./map/mapSlice";
 
 const sagaMiddleware = createSagaMiddleware();
 
