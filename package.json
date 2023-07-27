@@ -1,6 +1,7 @@
 {
-  "name": "ILS_test",
+  "name": "Ils_test",
   "version": "0.1.0",
+  "homepage": "http://dpunishe/Ils_test",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",

@@ -11,8 +11,8 @@ const Routing = () => {
   const map = useMap();
 
   useEffect(() => {
+   
     if (!wayPoints) return;
-    if (!map) return;
 
     const routingControl = L.Routing.control({
       waypoints: [

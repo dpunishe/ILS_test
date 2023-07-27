@@ -1,9 +1,10 @@
 import React from "react";
 import { MapContainer, ZoomControl, TileLayer } from "react-leaflet";
-import "../../styles/map.scss";
-import Routing from "./routing/Routing";
 
-const Map = () => {
+import "../../styles/map.scss";
+import Routing from "./routing/index";
+
+ const MyMap = () => {
   return (
     <div className="map">
       <MapContainer
@@ -13,6 +14,7 @@ const Map = () => {
         style={{ height: "100vh", width: "100%" }}
       >
         <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <ZoomControl position="topright" />
@@ -22,4 +24,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default MyMap

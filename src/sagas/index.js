@@ -1,4 +1,5 @@
 import { call, put, takeEvery } from "redux-saga/effects";
+
 import ApiService from "../services/api";
 import {
   setSelectedWay,
@@ -7,20 +8,21 @@ import {
 } from "../store/map/mapSlice";
 
 function* fetchWaySelection(action) {
-  yield put(setSelectedWay(action.payload));
+  
+  yield put(setSelectedWay(action.payload)); 
   try {
     const selectedWay = action.payload;
     const start = selectedWay.start;
     const space = selectedWay.space;
     const end = selectedWay.end;
-    const responce = yield call(
+    const response = yield call(
       ApiService.fetchPolyline,
       start,
       space,
       end
     );
     yield put(
-      setSelectedWayPolyline(responce.data.routes[0].geometry.coordinates)
+      setSelectedWayPolyline(response.data.routes[0].geometry.coordinates)
     );
   } catch (error) {
     yield put(setSelectedWayPolylineError(error));

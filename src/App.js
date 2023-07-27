@@ -1,12 +1,12 @@
-import Map from "./components/map/Map";
-import MyTable from "./components/table/MyTable";
+import MyMap from "./components/map";
+import MyTable from "./components/table";
 import "./styles/app.scss";
 
 function App() {
   return (
     <div className="app">
       <MyTable />
-      <Map />
+      <MyMap />
     </div>
   );
 }

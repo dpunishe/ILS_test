@@ -1,18 +1,13 @@
-import { Table } from "antd";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "../../styles/table.scss";
+
+import { Table } from "antd";
 import { Typography } from "antd";
 
-const { Text } = Typography;
+import {  columns }  from "../../const/index"
+import "../../styles/table.scss";
 
-const columns = [
-  {
-    title: "Маршрут",
-    dataIndex: "name",
-    key: "id",
-  },
-];
+const { Text } = Typography;
 
 const MyTable = () => {
   const { positionState: data, isError } = useSelector((state) => state.maps);
@@ -25,7 +20,7 @@ const MyTable = () => {
   }));
 
   const onRowSelect = (selectedRows) => {
-    const rowData = data.find((c) => c.id === selectedRows[0]);
+    const rowData = data.find((row) => row.id === selectedRows[0]);
     dispatch({ type: "saga/setSelectedWay", payload: rowData });
   };
 
@@ -40,10 +35,9 @@ const MyTable = () => {
         dataSource={dataSource}
         pagination={false}
       />
-      <br />
       {isError && <Text type="danger">{isError.message}</Text>}
     </div>
   );
 };
 
-export default MyTable;
+export default MyTable
